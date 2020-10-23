@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;والله يابني ما انا عارف ادينا بنكتب كود&apos; to &apos;adena_bnkteb_code&apos;" description="Rename resource &apos;والله يابني ما انا عارف ادينا بنكتب كود&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/والله يابني ما انا عارف ادينا بنكتب كود" name="adena_bnkteb_code" stamp="1600904334611" updateReferences="true"/>
+</session>

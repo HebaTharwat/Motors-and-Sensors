@@ -1,0 +1,20 @@
+15:41:43 **** Incremental Build of configuration Debug for project adena_bnkteb_code ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 adena_bnkteb_code.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    6392 bytes (39.0% Full)
+(.text + .data + .bootloader)
+
+Data:         22 bytes (2.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:41:43 Build Finished. 0 errors, 0 warnings. (took 437ms)
+

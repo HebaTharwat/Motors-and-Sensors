@@ -1,0 +1,51 @@
+/*
+ * main.c
+ *
+ *  Created on: 23 Sep 2020
+ *      Author: Heba_Tharwat
+ */
+
+
+#include "adc.h"
+#include "lcd.h"
+
+#define NUMBER_OF_OVERFLOWS_PER_HALF_SECOND 2
+unsigned char g_tick = 0;
+
+ISR(TIMER0_COMP_vect)
+{
+	g_tick++;
+	if(g_tick == NUMBER_OF_OVERFLOWS_PER_HALF_SECOND)
+	{
+		//
+		g_tick = 0; //clear the tick counter again to count a new 0.5 second
+	}
+}
+
+
+void timer0_init_CTC_mode(unsigned char tick)
+{
+	TCNT0 = 0;
+	OCR0  = tick;
+	TIMSK |= (1<<OCIE0);
+	TCCR0 = (1<<FOC0) | (1<<WGM01) | (1<<CS02) | (1<<CS00);
+}
+
+
+int main(void)
+{
+	uint16 res_value;
+	LCD_init();
+	ADC_init();
+
+	LCD_clearScreen();
+	LCD_displayString("ADC Value = ");
+
+    while(1)
+    {
+    	LCD_goToRowColumn(0,12);
+    	res_value = ADC_readChannel(0);
+    	LCD_intgerToString(res_value);
+   timer0_init_CTC_mode(res_value);
+    }
+}
